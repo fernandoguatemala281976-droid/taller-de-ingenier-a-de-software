@@ -43,3 +43,8 @@ Para cargar este código en tu propio ESP32:
 2. Abre el archivo `Baston.ino` en Visual Studio Code (con la extensión de Arduino) o en el Arduino IDE clásico.
 3. Asegúrate de tener instaladas las tarjetas de la familia **ESP32** en tu gestor de placas.
 4. Conecta el ESP32 por USB, selecciona el puerto COM correspondiente y presiona "Subir".
+## 🎨 Diseño y Ensamblaje
+Para garantizar la ergonomía y facilidad de uso del dispositivo, a continuación se muestran los bocetos de cómo se integra la electrónica (ESP32, sensor y actuadores) dentro de la estructura física del bastón:
+
+![Primer boceto](boceto_1.jpg)
+![Segundo boceto](boceto_2.jpg)
