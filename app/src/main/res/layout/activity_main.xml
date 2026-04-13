@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0D0D0D"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- ── HEADER ─────────────────────────────────────────────────── -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:paddingTop="24dp"
+            android:paddingBottom="16dp">
+
+            <!-- Hora del sistema -->
+            <TextView
+                android:id="@+id/tvHora"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="9:41"
+                android:textColor="#666666"
+                android:textSize="13sp"
+                android:letterSpacing="0.1"
+                android:fontFamily="sans-serif-light"
+                android:layout_marginBottom="4dp"/>
+
+            <!-- Título -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SmartWalk"
+                android:textColor="#FFFFFF"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.05"
+                android:fontFamily="sans-serif-medium"/>
+
+            <!-- Indicador de estado conexión -->
+            <TextView
+                android:id="@+id/tvEstado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="● Desconectado"
+                android:textColor="#F44336"
+                android:textSize="13sp"
+                android:layout_marginTop="8dp"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="4dp"
+                android:background="@drawable/bg_pill_dark"/>
+
+        </LinearLayout>
+
+        <!-- ── BOTÓN CONECTAR ─────────────────────────────────────────── -->
+        <Button
+            android:id="@+id/btnConectar"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="≡  Conectar dispositivo"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:background="@drawable/bg_card"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- ── TARJETAS SENSORES (2 columnas) ────────────────────────── -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_marginBottom="12dp">
+
+            <!-- Tarjeta Sensor Frente -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="140dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@drawable/bg_card"
+                android:layout_marginEnd="6dp">
+
+                <!-- Barra de color indicadora nivel -->
+                <View
+                    android:id="@+id/indicadorFrente"
+                    android:layout_width="40dp"
+                    android:layout_height="6dp"
+                    android:background="#333333"
+                    android:layout_marginBottom="10dp"/>
+
+                <!-- Ícono -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="⏱"
+                    android:textSize="22sp"
+                    android:layout_marginBottom="6dp"/>
+
+                <!-- Etiqueta -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sensor frente"
+                    android:textColor="#AAAAAA"
+                    android:textSize="12sp"
+                    android:layout_marginBottom="4dp"/>
+
+                <!-- Estado actual -->
+                <TextView
+                    android:id="@+id/tvSensorFrente"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="---"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:layout_marginBottom="2dp"/>
+
+                <!-- Sub-texto nivel/distancia -->
+                <TextView
+                    android:id="@+id/tvNivelFrente"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sin datos"
+                    android:textColor="#666666"
+                    android:textSize="11sp"/>
+
+            </LinearLayout>
+
+            <!-- Tarjeta Sensor Piso -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="140dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@drawable/bg_card"
+                android:layout_marginStart="6dp">
+
+                <!-- Barra de color indicadora nivel -->
+                <View
+                    android:id="@+id/indicadorPiso"
+                    android:layout_width="40dp"
+                    android:layout_height="6dp"
+                    android:background="#333333"
+                    android:layout_marginBottom="10dp"/>
+
+                <!-- Ícono -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="⌂"
+                    android:textSize="22sp"
+                    android:layout_marginBottom="6dp"/>
+
+                <!-- Etiqueta -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sensor piso"
+                    android:textColor="#AAAAAA"
+                    android:textSize="12sp"
+                    android:layout_marginBottom="4dp"/>
+
+                <!-- Estado actual -->
+                <TextView
+                    android:id="@+id/tvSensorPiso"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="---"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:layout_marginBottom="2dp"/>
+
+                <!-- Sub-texto nivel -->
+                <TextView
+                    android:id="@+id/tvNivelPiso"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sin datos"
+                    android:textColor="#666666"
+                    android:textSize="11sp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- ── TABLA DE NIVELES (igual a la imagen) ───────────────────── -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_card"
+            android:layout_marginBottom="12dp"
+            android:padding="14dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Escala de alertas — Frente"
+                android:textColor="#AAAAAA"
+                android:textSize="11sp"
+                android:textAllCaps="true"
+                android:letterSpacing="0.1"
+                android:layout_marginBottom="10dp"/>
+
+            <!-- Fila encabezado -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="6dp">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Distancia"  android:textColor="#666666" android:textSize="11sp" android:textStyle="bold"/>
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Nivel"      android:textColor="#666666" android:textSize="11sp" android:textStyle="bold"/>
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="2" android:text="Mensaje"    android:textColor="#666666" android:textSize="11sp" android:textStyle="bold"/>
+            </LinearLayout>
+
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#222222" android:layout_marginBottom="6dp"/>
+
+            <!-- F0 -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="6dp">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="> 100 cm"   android:textColor="#CCCCCC" android:textSize="11sp"/>
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="horizontal" android:gravity="center_vertical">
+                    <View android:layout_width="10dp" android:layout_height="10dp" android:background="#4CAF50" android:layout_marginEnd="4dp"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Sin alerta" android:textColor="#CCCCCC" android:textSize="11sp"/>
+                </LinearLayout>
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="2" android:text="Despejado"  android:textColor="#CCCCCC" android:textSize="11sp"/>
+            </LinearLayout>
+
+            <!-- F1 -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="6dp">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="81 – 100 cm" android:textColor="#CCCCCC" android:textSize="11sp"/>
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="horizontal" android:gravity="center_vertical">
+                    <View android:layout_width="10dp" android:layout_height="10dp" android:background="#9C27B0" android:layout_marginEnd="4dp"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Nivel 1" android:textColor="#CCCCCC" android:textSize="11sp"/>
+                </LinearLayout>
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="2" android:text="Aviso: objeto en rango" android:textColor="#CCCCCC" android:textSize="11sp"/>
+            </LinearLayout>
+
+            <!-- F2 -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="6dp">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="61 – 80 cm" android:textColor="#CCCCCC" android:textSize="11sp"/>
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="horizontal" android:gravity="center_vertical">
+                    <View android:layout_width="10dp" android:layout_height="10dp" android:background="#FFC107" android:layout_marginEnd="4dp"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Nivel 2" android:textColor="#CCCCCC" android:textSize="11sp"/>
+                </LinearLayout>
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="2" android:text="Precaución: próximo" android:textColor="#CCCCCC" android:textSize="11sp"/>
+            </LinearLayout>
+
+            <!-- F3 -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="6dp">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="41 – 60 cm" android:textColor="#CCCCCC" android:textSize="11sp"/>
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="horizontal" android:gravity="center_vertical">
+                    <View android:layout_width="10dp" android:layout_height="10dp" android:background="#FF9800" android:layout_marginEnd="4dp"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Nivel 3" android:textColor="#CCCCCC" android:textSize="11sp"/>
+                </LinearLayout>
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="2" android:text="Muy cerca: reduce velocidad" android:textColor="#CCCCCC" android:textSize="11sp"/>
+            </LinearLayout>
+
+            <!-- F4 -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="6dp">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="21 – 40 cm" android:textColor="#CCCCCC" android:textSize="11sp"/>
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="horizontal" android:gravity="center_vertical">
+                    <View android:layout_width="10dp" android:layout_height="10dp" android:background="#F44336" android:layout_marginEnd="4dp"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Nivel 4" android:textColor="#CCCCCC" android:textSize="11sp"/>
+                </LinearLayout>
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="2" android:text="Peligro: detente ahora" android:textColor="#CCCCCC" android:textSize="11sp"/>
+            </LinearLayout>
+
+            <!-- F5 -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="0 – 20 cm"  android:textColor="#CCCCCC" android:textSize="11sp"/>
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="horizontal" android:gravity="center_vertical">
+                    <View android:layout_width="10dp" android:layout_height="10dp" android:background="#B71C1C" android:layout_marginEnd="4dp"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Nivel 5" android:textColor="#CCCCCC" android:textSize="11sp"/>
+                </LinearLayout>
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="2" android:text="Peligro máximo" android:textColor="#CCCCCC" android:textSize="11sp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- ── ÚLTIMA ALERTA ──────────────────────────────────────────── -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_card"
+            android:gravity="center"
+            android:padding="16dp"
+            android:layout_marginBottom="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Última alerta"
+                android:textColor="#666666"
+                android:textSize="11sp"
+                android:textAllCaps="true"
+                android:letterSpacing="0.1"
+                android:layout_marginBottom="4dp"/>
+
+            <TextView
+                android:id="@+id/tvUltimaAlerta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ninguna"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+        <!-- ── BOTONES AUDIO Y PRUEBA ─────────────────────────────────── -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_marginBottom="24dp">
+
+            <Button
+                android:id="@+id/btnAudio"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:text="🔊 Audio activo"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                android:background="@drawable/bg_card"
+                android:layout_marginEnd="6dp"/>
+
+            <Button
+                android:id="@+id/btnPrueba"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:text="⊕ Prueba"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                android:background="@drawable/bg_card"
+                android:layout_marginStart="6dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
